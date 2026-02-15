@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>NOTES</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#">
+            <img src="./images/📝Notes.png" alt="logo">
+        </a>
+
+        <div class="total-notes">
+            <img src="./images/icons/notes.png" alt="notes-ico">
+            <p>Всего заметок: <span id="total-notes-count">0</span></p>
+            <p id="favourites-count"></p>
+        </div>
+    </header>
+
+    <main>
+        <form class="note-form" name="notes">
+            <div class="note-title-field">
+                <label for="note-title">Название заметки</label>
+                <input id="note-title" name="title" type="text" maxlength="50" required>
+            </div>
+
+            <div class="note-description-field">
+                <label for="note-text">Описание новой заметки</label>
+                <textarea id="note-text" name="text" maxlength="200" required></textarea>
+            </div>
+
+            <fieldset class="colors">
+                <legend>Выберите цвет заметки</legend>
+
+                <label class="color">
+                    <input type="radio" name="color" value="yellow" checked>
+                    <span class="dot"></span>
+                </label>
+
+                <label class="color">
+                    <input type="radio" name="color" value="green">
+                    <span class="dot"></span>
+                </label>
+
+                <label class="color">
+                    <input type="radio" name="color" value="blue">
+                    <span class="dot"></span>
+                </label>
+
+                <label class="color">
+                    <input type="radio" name="color" value="red">
+                    <span class="dot"></span>
+                </label>
+
+                <label class="color">
+                    <input type="radio" name="color" value="purple">
+                    <span class="dot"></span>
+                </label>
+            </fieldset>
+
+            <button type="submit" class="add-note-btn">
+                <img src="./images/icons/plus.png" alt="plus-ico">
+                Добавить заметку
+            </button>
+        </form>
+
+
+        <div class="filter-box">
+            <label>
+                <input type="checkbox" id="filter-favorites">
+                Показать только избранные заметки
+            </label>
+        </div>
+
+
+        <ul class="notes-list">
+            <!-- Сюда будут рендерится заметки из JavaScript -->
+        </ul>
+
+
+        <div class="messages-box">
+            <!-- Сюда будут рендерится информационные сообщения из JavaScript -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

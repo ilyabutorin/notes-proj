@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* isFavourite btn */
+.fav-btn .fav-icon-on { display: none; }
+.fav-btn.is-favourite .fav-icon-off { display: none; }
+.fav-btn.is-favourite .fav-icon-on { display: inline-block; }
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid gray;
+}
