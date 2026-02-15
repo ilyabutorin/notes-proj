@@ -276,6 +276,9 @@ legend {
 /* isFavourite btn */
 /* Note cards */
 
+
+
+
 .messages-box {
     position: fixed;
     bottom: 30px;
@@ -317,8 +320,48 @@ legend {
         transform: translateX(30px);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+
+
+@media (max-width: 675px) {
+    header {
+        padding: 15px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .note-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 16px;
+    }
+
+    .form-controllers {
+        padding-top: 0;
+    }
+
+    .add-note-btn {
+        width: 100%;
+    }
+
+    .filter-box {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .notes-list {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        overflow-x: hidden;
     }
 }
