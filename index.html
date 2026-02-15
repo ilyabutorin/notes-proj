@@ -20,7 +20,7 @@
         </a>
 
         <div class="total-notes">
-            <img src="./images/icons/notes.png" alt="notes-ico">
+            <img src="./images/icons/notes.svg" alt="notes-ico">
             <p>Всего заметок: <span id="total-notes-count">0</span></p>
             <p id="favourites-count"></p>
         </div>
@@ -28,49 +28,47 @@
 
     <main>
         <form class="note-form" name="notes">
-            <div class="note-title-field">
-                <label for="note-title">Название заметки</label>
-                <input id="note-title" name="title" type="text" maxlength="50" required>
+            <div class="form-inputs">
+                <div class="note-title-field">
+                    <label for="note-title">Название заметки</label>
+                    <input id="note-title" name="title" type="text" maxlength="50" required
+                        placeholder="Напишите название новой заметки...">
+                </div>
+
+                <div class="note-description-field">
+                    <label for="note-text">Описание новой заметки</label>
+                    <textarea id="note-text" name="text" maxlength="200" required
+                        placeholder="Напишите описание новой заметки..."></textarea>
+                </div>
             </div>
 
-            <div class="note-description-field">
-                <label for="note-text">Описание новой заметки</label>
-                <textarea id="note-text" name="text" maxlength="200" required></textarea>
+            <div class="form-controllers">
+                <fieldset class="colors-fieldset">
+                    <legend class="label">Выберите цвет заметки</legend>
+                    <ul class="radio-list">
+                        <li>
+                            <input checked class="radio" type="radio" name="color" value="yellow" aria-label="yellow" />
+                        </li>
+                        <li>
+                            <input class="radio" type="radio" name="color" value="red" aria-label="red" />
+                        </li>
+                        <li>
+                            <input class="radio" type="radio" name="color" value="green" aria-label="green" />
+                        </li>
+                        <li>
+                            <input class="radio" type="radio" name="color" value="blue" aria-label="blue" />
+                        </li>
+                        <li>
+                            <input class="radio" type="radio" name="color" value="purple" aria-label="purple" />
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <button type="submit" class="add-note-btn">
+                    <img src="./images/icons/plus.png" alt="plus-ico">
+                    Добавить заметку
+                </button>
             </div>
-
-            <fieldset class="colors">
-                <legend>Выберите цвет заметки</legend>
-
-                <label class="color">
-                    <input type="radio" name="color" value="yellow" checked>
-                    <span class="dot"></span>
-                </label>
-
-                <label class="color">
-                    <input type="radio" name="color" value="green">
-                    <span class="dot"></span>
-                </label>
-
-                <label class="color">
-                    <input type="radio" name="color" value="blue">
-                    <span class="dot"></span>
-                </label>
-
-                <label class="color">
-                    <input type="radio" name="color" value="red">
-                    <span class="dot"></span>
-                </label>
-
-                <label class="color">
-                    <input type="radio" name="color" value="purple">
-                    <span class="dot"></span>
-                </label>
-            </fieldset>
-
-            <button type="submit" class="add-note-btn">
-                <img src="./images/icons/plus.png" alt="plus-ico">
-                Добавить заметку
-            </button>
         </form>
 
 

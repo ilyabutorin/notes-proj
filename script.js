@@ -76,7 +76,7 @@ const view = {
 
         if (notes.length === 0) {
             ul.innerHTML = `
-                <li class="empty">У вас ещё нет ни одной заметки. Заполните поля выше и создайте свою первую заметку!</li>
+                <li class="empty">У вас ещё нет ни одной заметки.<br> Заполните поля выше и создайте свою первую заметку!</li>
             `
             return
         }
@@ -90,12 +90,14 @@ const view = {
         <li data-id="${note.id}">
             <div class="li-head ${note.color}">
                 <p class="note-title">${note.title}</p>
+                <div class="note-actions">
                 <button class="fav-btn ${note.isFavourite ? 'is-favourite' : ''}" type="button">
                 <img class="fav-icon-off" src="./images/icons/heart-inactive.png" alt="">
                 <img class="fav-icon-on" src="./images/icons/heart-active.png" alt="">
                 </button>
                 <button class="delete-btn" type="button">
                 <img class="delete-icon" src="./images/icons/trash.png" alt=""></button>
+                </div>
             </div>
             <p class="note-description">${note.description}</p>
         </li>
@@ -113,10 +115,24 @@ const view = {
     showMessege(text, type) {
         const messegeBox = document.querySelector('.messages-box')
         const messege = document.createElement('div')
-        messege.classList.add('messege')
-        messege.classList.add(type)
-        messege.innerText = text
+        messege.classList.add('messege', type)
+
+        const icon = document.createElement('img')
+        icon.classList.add('messege-icon')
+        if (type === 'success') {
+            icon.src = './images/icons/done.png'
+            icon.alt = 'success'
+        } else if (type === 'error') {
+            icon.src = './images/icons/warning.png'
+            icon.alt = 'error'
+        }
+
+        const span = document.createElement('span')
+        span.textContent = text
+
+        messege.append(icon, span)
         messegeBox.append(messege)
+
         setTimeout(() => {
             messege.remove()
         }, 3000);
@@ -161,6 +177,7 @@ const controller = {
     render() {
         const notesCount = document.querySelector('#total-notes-count')
         const favCountEl = document.querySelector('#favourites-count')
+        document.querySelector('.filter-box').style.display = model.notes.length ? 'flex' : 'none'
 
         let notesToShow = model.notes
         if (this.onlyFavourites) {
@@ -181,3 +198,4 @@ const controller = {
 }
 
 view.init()
+controller.render()
